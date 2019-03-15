@@ -1,0 +1,9 @@
+<div class="parkingSpotCol">
+  <ion-col col-4 class="left-parking-lot-col">
+    {{parkingId}}
+  </ion-col>
+  <ion-col col-8 [class.noDataAvailable]="!backendHasDataAboutParkingSpot()">
+    <div *ngIf="!backendHasDataAboutParkingSpot()"><b>?</b></div>
+    <img class="car-icon" src="assets/imgs/Auto_rotated.svg" *ngIf="isCarVisible() && backendHasDataAboutParkingSpot()" [class.car-reserved]="isParkingSpotReserved()" [class.car-my-reserved]="isMyParkingSpotReserved()">
+  </ion-col>
+<div>

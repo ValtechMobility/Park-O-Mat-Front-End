@@ -1,0 +1,66 @@
+page-parkingspot-overview {
+
+}
+
+.grid {
+  height: 100%;
+}
+
+.row {
+  height: 100%;
+  line-height: 100%;
+}
+
+.col{
+  border: 1px solid black;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left-parking-lot-col{
+  border: 0px;
+  display: flex;
+  align-items: right;
+  justify-content: flex-end;
+}
+
+.right-parking-lot-col{
+  border: 0px;
+  display: flex;
+  align-items: left;
+  justify-content: flex-start;
+}
+
+.dotted-border{
+  border: 2px dotted black;
+  background-color: #D3D3D3;
+}
+
+.car-icon{
+  height: 20px;
+}
+
+.car-reserved{
+  filter: invert(.5);
+}
+
+.car-my-reserved{
+  filter: invert(.5) sepia(1) saturate(5) hue-rotate(175deg);
+}
+
+.rotated {
+  transform: rotate(180deg);
+}
+
+.noDataAvailable{
+  background-color: #D3D3D3;
+}
+
+.buttonContainer{
+  border: 0px;
+  display: block;
+  align-items: center;
+  width: 100%;
+}

@@ -1,0 +1,148 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+// Font path is used to include ionicons,
+// roboto, and noto sans fonts
+$font-path: "../assets/fonts";
+
+
+// The app direction is used to include
+// rtl styles in your app. For more info, please see:
+// http://ionicframework.com/docs/theming/rtl-support/
+$app-direction: ltr;
+
+
+@import "ionic.globals";
+
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/theming/overriding-ionic-variables/
+
+
+
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+$colors: (
+  primary:    #02bcf9,
+  secondary:  #32db64,
+  danger:     #f53d3d,
+  light:      #f4f4f4,
+  dark:       #222
+);
+
+ion-content .scroll-content {
+    overflow : hidden;
+ }
+
+.circle-container {
+  margin: auto;
+  display: table;
+}
+
+.unknown-container {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  left: 0px;
+}
+
+.circle-with-text {
+    position: relative;
+    display: table-cell;
+    height: 220px;
+    width: 220px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 50%;
+    border:1px solid black;
+    font: 18px "josefin sans", arial;
+}
+
+.circle-text-number {
+  position: relative;
+  width: 100%;
+  font-size: 400%;
+  -webkit-padding-start: 20px; // have to do it for chrome. Otherwise there is an offset
+}
+
+@media screen and (orientation: landscape){
+
+  .buttonContainer{
+    grid-area: buttons;
+  }
+
+  .circle-with-text{
+    grid-area: circle;
+    height: 180px;
+    width: 180px;
+  }
+
+  .container {
+    display: grid;
+    grid-template-areas:
+      "header header"
+      "circle buttons";
+  }
+}
+
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+
+
+
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+
+.toolbar-content-md{
+   position: absolute;
+   width: 100%;
+   text-align: center;
+   pointer-events: none;
+}
+
+
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+
+
+
+
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+@import "ionic.theme.default";
+
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/ionicons/
+
+@import "ionic.ionicons";
+
+
+// Fonts
+// --------------------------------------------------
+
+@import "roboto";
+@import "noto-sans";
