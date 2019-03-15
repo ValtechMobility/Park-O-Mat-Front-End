@@ -1,0 +1,30 @@
+page-parkingspot-overview {
+
+}
+
+.grid {
+  height: 100%;
+}
+
+.row {
+  height: 100%;
+  line-height: 100%;
+}
+
+.parkingSpot {
+  padding: 0px;
+}
+
+.left-parking-lot-col{
+  border: 0px;
+  display: flex;
+  align-items: right;
+  justify-content: flex-end;
+}
+
+.right-parking-lot-col{
+  border: 0px;
+  display: flex;
+  align-items: left;
+  justify-content: flex-start;
+}

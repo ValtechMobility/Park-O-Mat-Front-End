@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title text-center>
+      Park-o-mat
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="container">
+    <div class="circle-container">
+      <div class="circle-with-text">
+        <span class="circle-text-number">
+          <b>{{freeparkingSpots}}</b>
+        </span><br/>
+        Parkplätze frei
+      </div>
+      <div class="unknown-container">
+        <span *ngIf="unknown > 0">{{unknown}} Unbekannt</span>
+      </div>
+    </div>
+    <div class="buttonContainer">
+      <br/>
+      <button [hidden]="true" ion-button block (click)="goToBlockparkingSpot()">Blocken</button>
+      <br/>
+      <button ion-button block outline (click)="goToParkingSpotsOverview()">Parkplatzübersicht</button>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title text-center>
+      Park-o-mat
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="container">
+    <div class="circle-container">
+      <div class="circle-with-text">
+        Parkplatz<br/>
+        <span class="circle-text-number">
+          <b>#{{parkingSpotBlockedId}}</b>
+        </span><br/>
+        für dich geblocked<br/>
+        {{timeBlocked}}
+      </div>
+    </div>
+    <div class="buttonContainer">
+      <br/>
+      <button ion-button block (click)="releaseparkingSpotAndGoToHome()">Freigeben</button>
+      <br/>
+      <button ion-button block outline (click)="goToParkingSpotsOverview()">Parkplatzübersicht</button>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "park-o-mat",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
