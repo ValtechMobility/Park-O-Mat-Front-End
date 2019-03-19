@@ -1,5 +1,11 @@
-import { Component, Input } from '@angular/core';
-import { Storage } from '@ionic/storage';
+/*
+ * parkingspot-right.ts
+ *
+ * Created on 2019-03-19
+ */
+
+import {Component, Input} from '@angular/core';
+import {Storage} from '@ionic/storage';
 
 /**
  * Generated class for the ParkingspotRightComponent component.
@@ -13,29 +19,29 @@ import { Storage } from '@ionic/storage';
 })
 export class ParkingspotRightComponent {
 
-    @Input() parkingSpot: any;
-    @Input() parkingId: any;
-    private myReservedSpot: any;
+  @Input() parkingSpot: any;
+  @Input() parkingId: any;
+  private myReservedSpot: any;
 
-    constructor(private storage: Storage) {
-      this.storage.get("myReservedSpot").then((myReservedSpot) => {
-        this.myReservedSpot = myReservedSpot;
-      });
-    }
+  constructor(private storage: Storage) {
+    this.storage.get("myReservedSpot").then((myReservedSpot) => {
+      this.myReservedSpot = myReservedSpot;
+    });
+  }
 
-    public backendHasDataAboutParkingSpot(){
-      return this.parkingSpot != null && (this.parkingSpot.sensorId!='00000000' || this.parkingSpot.lastUpdated != null);
-    }
+  public backendHasDataAboutParkingSpot() {
+    return this.parkingSpot != null && (this.parkingSpot.sensorId != '00000000' || this.parkingSpot.lastUpdated != null);
+  }
 
-    public isCarVisible(){
-      return this.parkingSpot != null && (this.parkingSpot.occupied || this.parkingSpot.reserved);
-    }
+  public isCarVisible() {
+    return this.parkingSpot != null && (this.parkingSpot.occupied || this.parkingSpot.reserved);
+  }
 
-    public isParkingSpotReserved(){
-      return this.parkingSpot != null && !this.isMyParkingSpotReserved() && this.parkingSpot.reserved;
-    }
+  public isParkingSpotReserved() {
+    return this.parkingSpot != null && !this.isMyParkingSpotReserved() && this.parkingSpot.reserved;
+  }
 
-    public isMyParkingSpotReserved(){
-        return this.parkingSpot != null && this.myReservedSpot != null && this.myReservedSpot.parkingId == this.parkingSpot.parkingId;
-    }
+  public isMyParkingSpotReserved() {
+    return this.parkingSpot != null && this.myReservedSpot != null && this.myReservedSpot.parkingId == this.parkingSpot.parkingId;
+  }
 }

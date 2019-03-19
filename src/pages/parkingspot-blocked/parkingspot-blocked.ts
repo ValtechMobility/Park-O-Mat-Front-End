@@ -1,8 +1,15 @@
-import { Component } from '@angular/core';
-import { Platform, IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
-import { Storage } from '@ionic/storage';
+/*
+ * parkingspot-blocked.ts
+ *
+ * Created on 2019-03-19
+ */
+
+import {Component} from '@angular/core';
+import {AlertController, IonicPage, LoadingController, NavController, NavParams, Platform} from 'ionic-angular';
+import {Storage} from '@ionic/storage';
 
 import {ReserveRequestControllerService} from '../../providers/rest-api/api/reserveRequestController.service'
+
 /**
  * Generated class for the parkingSpotBlockedPage page.
  *
@@ -25,30 +32,30 @@ export class ParkingspotBlockedPage {
   secondsRemaining: number;
 
   loading: any;
-  parkingSpotBlockedId ="N/A";
+  parkingSpotBlockedId = "N/A";
   reservationToken: string;
   timeBlocked = "0:00 min";
   blockingReleaseDone = false;
   onResumeSubscription: any;
 
   constructor(public navCtrl: NavController,
-    public navParams: NavParams,
-    public platform: Platform,
-    public reserveRequestControllerService: ReserveRequestControllerService,
-    public alertCtrl: AlertController,
-    public loadingCtrl: LoadingController,
-    private storage: Storage) {
+              public navParams: NavParams,
+              public platform: Platform,
+              public reserveRequestControllerService: ReserveRequestControllerService,
+              public alertCtrl: AlertController,
+              public loadingCtrl: LoadingController,
+              private storage: Storage) {
   }
 
   ionViewDidEnter() {
     this.initializeView();
-    if(!this.onResumeSubscription){
+    if (!this.onResumeSubscription) {
       let page = this;
       this.onResumeSubscription = this.platform.resume.subscribe(() => {
         let active = page.navCtrl.last().instance instanceof ParkingspotBlockedPage;
-        if(active){
-           page.initializeView();
-         }
+        if (active) {
+          page.initializeView();
+        }
       });
     }
   }
@@ -73,18 +80,20 @@ export class ParkingspotBlockedPage {
       this.hasFinished = false;
       this.timerTick();
 
-    }).catch(() => {console.log("No reserved Spot")});
+    }).catch(() => {
+      console.log("No reserved Spot")
+    });
   }
 
   releaseparkingSpotAndGoToHome() {
-    if(this.parkingSpotBlockedId == null){
+    if (this.parkingSpotBlockedId == null) {
       this.doErrorAlert("Error", "Kein Parkplatz reserviert!");
       this.navCtrl.setRoot('HomePage');
     }
 
     let loading = null;
     setTimeout(() => {
-      if(!this.blockingReleaseDone){
+      if (!this.blockingReleaseDone) {
         loading = this.createLoadingScreen();
       }
     }, 1500);
@@ -92,40 +101,40 @@ export class ParkingspotBlockedPage {
     this.blockingReleaseDone = false;
 
     this.reserveRequestControllerService.releaseUsingPUT(this.parkingSpotBlockedId, this.reservationToken)
-        .toPromise()
-            .then(data => {
-              console.log("Released ParkingSpot response:");
-              console.log(data);
-              this.hasFinished = true;
-              this.storage.remove("myReservedSpot");
-              this.blockingReleaseDone = true;
-              if(loading != null){
-                loading.dismiss();
-              }
-              this.navCtrl.setRoot('HomePage');
-            }).catch(err => {
-              this.hasFinished = true;
-              this.blockingReleaseDone = true;
-              if(loading != null){
-                loading.dismiss();
-              }
-              console.error('Got an error while releasing parkingspot: ');
-              console.error(err);
-              console.error(err.error.message);
-              this.doErrorAlert("Error", "Dein Parkplatz konnte nicht freigegeben werden!\n" + err.error.message);
-            });
+      .toPromise()
+      .then(data => {
+        console.log("Released ParkingSpot response:");
+        console.log(data);
+        this.hasFinished = true;
+        this.storage.remove("myReservedSpot");
+        this.blockingReleaseDone = true;
+        if (loading != null) {
+          loading.dismiss();
+        }
+        this.navCtrl.setRoot('HomePage');
+      }).catch(err => {
+      this.hasFinished = true;
+      this.blockingReleaseDone = true;
+      if (loading != null) {
+        loading.dismiss();
+      }
+      console.error('Got an error while releasing parkingspot: ');
+      console.error(err);
+      console.error(err.error.message);
+      this.doErrorAlert("Error", "Dein Parkplatz konnte nicht freigegeben werden!\n" + err.error.message);
+    });
 
     setTimeout(() => {
-      if(!this.blockingReleaseDone){
+      if (!this.blockingReleaseDone) {
         this.doErrorAlert("Timeout", "Dein Parkplatz konnte nicht freigegeben werden!");
       }
-      if(loading != null){
+      if (loading != null) {
         loading.dismiss();
       }
     }, this.requestTimeoutInMilliseconds);
   }
 
-  goToParkingSpotsOverview(){
+  goToParkingSpotsOverview() {
     this.navCtrl.push('ParkingspotOverviewPage');
   }
 
@@ -139,7 +148,7 @@ export class ParkingspotBlockedPage {
     alert.present();
   }
 
-  private createLoadingScreen(){
+  private createLoadingScreen() {
     let loading = this.loadingCtrl.create({
       content: 'Parkplatz freigeben...'
     });
@@ -152,7 +161,7 @@ export class ParkingspotBlockedPage {
 
   private getSecondsAsDigitalClock(inputSeconds: number) {
     let sec_num = parseInt(inputSeconds.toString(), 10); // don't forget the second param
-    let hours   = Math.floor(sec_num / 3600);
+    let hours = Math.floor(sec_num / 3600);
     let minutes = Math.floor((sec_num - (hours * 3600)) / 60);
     let seconds = sec_num - (hours * 3600) - (minutes * 60);
     let minutesString = '';
@@ -164,21 +173,22 @@ export class ParkingspotBlockedPage {
 
 
   private timerTick() {
-      setTimeout(() => {
-        if (this.hasFinished) { return; }
-        this.secondsRemaining--;
-        this.timeBlocked = this.getSecondsAsDigitalClock(this.secondsRemaining) + " min";
-        if (this.secondsRemaining > 0) {
-            this.timerTick();
-        }
-        else {
-          this.hasFinished = true;
-          this.doErrorAlert("Expired", "Your reservation expired!");
-          this.storage.remove("myReservedSpot");
-          this.navCtrl.setRoot('HomePage');
+    setTimeout(() => {
+      if (this.hasFinished) {
+        return;
+      }
+      this.secondsRemaining--;
+      this.timeBlocked = this.getSecondsAsDigitalClock(this.secondsRemaining) + " min";
+      if (this.secondsRemaining > 0) {
+        this.timerTick();
+      } else {
+        this.hasFinished = true;
+        this.doErrorAlert("Expired", "Your reservation expired!");
+        this.storage.remove("myReservedSpot");
+        this.navCtrl.setRoot('HomePage');
 
-        }
-      }, 1000);
+      }
+    }, 1000);
   }
 
 }

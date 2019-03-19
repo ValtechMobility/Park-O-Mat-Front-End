@@ -1,3 +1,9 @@
+/*!
+ * parkingspot-right.scss
+ *
+ * Created on 2019-03-19
+ */
+
 parkingspot-right {
 
 }
@@ -10,30 +16,30 @@ parkingspot-right {
   margin: 0px;
 }
 
-.right-parking-lot-col{
+.right-parking-lot-col {
   border: 0px;
   display: flex;
   align-items: left;
   justify-content: flex-start;
 }
 
-.dotted-border{
+.dotted-border {
   border: 2px dotted black;
   background-color: #D3D3D3;
 }
 
-.car-icon{
+.car-icon {
   height: 20px;
 }
 
-.car-reserved{
+.car-reserved {
   filter: invert(.5);
 }
 
-.car-my-reserved{
+.car-my-reserved {
   filter: invert(.5) sepia(1) saturate(5) hue-rotate(175deg);
 }
 
-.noDataAvailable{
+.noDataAvailable {
   background-color: #D3D3D3;
 }

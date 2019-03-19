@@ -1,3 +1,9 @@
+/*
+ * view.ts
+ *
+ * Created on 2019-03-19
+ */
+
 /**
  * Parkplatz
  * Nice API
@@ -11,5 +17,5 @@
 
 
 export interface View {
-    contentType?: string;
+  contentType?: string;
 }

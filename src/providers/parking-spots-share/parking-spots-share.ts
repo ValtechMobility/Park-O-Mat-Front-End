@@ -1,4 +1,10 @@
-import { Injectable } from '@angular/core';
+/*
+ * parking-spots-share.ts
+ *
+ * Created on 2019-03-19
+ */
+
+import {Injectable} from '@angular/core';
 
 /*
   Generated class for the InitLoad ParkingSpotsProvider provider.
@@ -14,15 +20,15 @@ export class ParkingSpotsShare {
   constructor() {
   }
 
-  public setparkingSpots(parkingSpots_: any){
+  public setparkingSpots(parkingSpots_: any) {
     this.parkingSpots = parkingSpots_;
   }
 
-  public getparkingSpots(){
+  public getparkingSpots() {
     return this.parkingSpots;
   }
 
-  public updateParkingSpot(id: string, parkingSpot: any){
+  public updateParkingSpot(id: string, parkingSpot: any) {
     this.parkingSpots[id] = parkingSpot;
   }
 

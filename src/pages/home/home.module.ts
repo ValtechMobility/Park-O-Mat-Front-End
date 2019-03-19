@@ -1,6 +1,12 @@
-import { NgModule } from '@angular/core';
-import { IonicPageModule } from 'ionic-angular';
-import { HomePage } from './home';
+/*
+ * home.module.ts
+ *
+ * Created on 2019-03-19
+ */
+
+import {NgModule} from '@angular/core';
+import {IonicPageModule} from 'ionic-angular';
+import {HomePage} from './home';
 
 @NgModule({
   declarations: [
@@ -13,4 +19,5 @@ import { HomePage } from './home';
     HomePage
   ]
 })
-export class HomePageModule {}
+export class HomePageModule {
+}

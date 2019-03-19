@@ -1,6 +1,12 @@
-import { NgModule } from '@angular/core';
-import { IonicPageModule } from 'ionic-angular';
-import { ParkingspotBlockedPage } from './parkingspot-blocked';
+/*
+ * parkingspot-blocked.module.ts
+ *
+ * Created on 2019-03-19
+ */
+
+import {NgModule} from '@angular/core';
+import {IonicPageModule} from 'ionic-angular';
+import {ParkingspotBlockedPage} from './parkingspot-blocked';
 
 @NgModule({
   declarations: [
@@ -10,4 +16,5 @@ import { ParkingspotBlockedPage } from './parkingspot-blocked';
     IonicPageModule.forChild(ParkingspotBlockedPage),
   ],
 })
-export class ParkingspotBlockedPageModule {}
+export class ParkingspotBlockedPageModule {
+}
