@@ -1,5 +1,11 @@
-import { Component, Input } from '@angular/core';
-import { Storage } from '@ionic/storage';
+/*
+ * parkingspot-left.ts
+ *
+ * Created on 2019-03-19
+ */
+
+import {Component, Input} from '@angular/core';
+import {Storage} from '@ionic/storage';
 
 /**
  * Generated class for the ParkingspotLeftComponent component.
@@ -23,19 +29,19 @@ export class ParkingspotLeftComponent {
     });
   }
 
-  public backendHasDataAboutParkingSpot(){
-    return this.parkingSpot != null && (this.parkingSpot.sensorId!='00000000' || this.parkingSpot.lastUpdated != null);
+  public backendHasDataAboutParkingSpot() {
+    return this.parkingSpot != null && (this.parkingSpot.sensorId != '00000000' || this.parkingSpot.lastUpdated != null);
   }
 
-  public isCarVisible(){
+  public isCarVisible() {
     return this.parkingSpot != null && (this.parkingSpot.occupied || this.parkingSpot.reserved);
   }
 
-  public isParkingSpotReserved(){
+  public isParkingSpotReserved() {
     return this.parkingSpot != null && !this.isMyParkingSpotReserved() && this.parkingSpot.reserved;
   }
 
-  public isMyParkingSpotReserved(){
-      return this.parkingSpot != null && this.myReservedSpot != null && this.myReservedSpot.parkingId == this.parkingSpot.parkingId;
+  public isMyParkingSpotReserved() {
+    return this.parkingSpot != null && this.myReservedSpot != null && this.myReservedSpot.parkingId == this.parkingSpot.parkingId;
   }
 }

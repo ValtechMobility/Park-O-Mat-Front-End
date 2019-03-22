@@ -1,3 +1,9 @@
+/*!
+ * parkingspot-overview.scss
+ *
+ * Created on 2019-03-19
+ */
+
 page-parkingspot-overview {
 
 }
@@ -11,7 +17,7 @@ page-parkingspot-overview {
   line-height: 100%;
 }
 
-.col{
+.col {
   border: 1px solid black;
   text-align: center;
   display: flex;
@@ -19,34 +25,34 @@ page-parkingspot-overview {
   justify-content: center;
 }
 
-.left-parking-lot-col{
+.left-parking-lot-col {
   border: 0px;
   display: flex;
   align-items: right;
   justify-content: flex-end;
 }
 
-.right-parking-lot-col{
+.right-parking-lot-col {
   border: 0px;
   display: flex;
   align-items: left;
   justify-content: flex-start;
 }
 
-.dotted-border{
+.dotted-border {
   border: 2px dotted black;
   background-color: #D3D3D3;
 }
 
-.car-icon{
+.car-icon {
   height: 20px;
 }
 
-.car-reserved{
+.car-reserved {
   filter: invert(.5);
 }
 
-.car-my-reserved{
+.car-my-reserved {
   filter: invert(.5) sepia(1) saturate(5) hue-rotate(175deg);
 }
 
@@ -54,11 +60,11 @@ page-parkingspot-overview {
   transform: rotate(180deg);
 }
 
-.noDataAvailable{
+.noDataAvailable {
   background-color: #D3D3D3;
 }
 
-.buttonContainer{
+.buttonContainer {
   border: 0px;
   display: block;
   align-items: center;

@@ -1,3 +1,9 @@
+/*
+ * service-worker.js
+ *
+ * Created on 2019-03-19
+ */
+
 /**
  * Check out https://googlechromelabs.github.io/sw-toolbox/ for
  * more info on how to use sw-toolbox to custom configure your service worker.

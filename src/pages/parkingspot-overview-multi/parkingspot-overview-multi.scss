@@ -1,3 +1,9 @@
+/*!
+ * parkingspot-overview-multi.scss
+ *
+ * Created on 2019-03-19
+ */
+
 page-parkingspot-overview {
 
 }
@@ -15,14 +21,14 @@ page-parkingspot-overview {
   padding: 0px;
 }
 
-.left-parking-lot-col{
+.left-parking-lot-col {
   border: 0px;
   display: flex;
   align-items: right;
   justify-content: flex-end;
 }
 
-.right-parking-lot-col{
+.right-parking-lot-col {
   border: 0px;
   display: flex;
   align-items: left;

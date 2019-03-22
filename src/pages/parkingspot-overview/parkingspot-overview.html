@@ -1,3 +1,9 @@
+<!--
+  ~ parkingspot-overview.html
+  ~
+  ~ Created on 2019-03-19
+  -->
+
 <ion-header>
   <ion-navbar color="primary">
     <ion-title text-center>
@@ -16,7 +22,8 @@
       </ion-col>
       <ion-col col-4>
         <img style="height: 20px" src="assets/imgs/wheelchair.svg" *ngIf="!isCarVisible(30)">
-        <img class="car-icon rotated" src="assets/Auto.svg" *ngIf="isCarVisible(30)" [class.car-reserved]="isParkingSpotReserved(31)" [class.car-my-reserved]="isMyParkingSpotReserved(30)">
+        <img class="car-icon rotated" src="assets/Auto.svg" *ngIf="isCarVisible(30)"
+             [class.car-reserved]="isParkingSpotReserved(31)" [class.car-my-reserved]="isMyParkingSpotReserved(30)">
       </ion-col>
       <ion-col col-4 class="dotted-border">
         <ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon>
@@ -26,43 +33,59 @@
     </ion-row>
 
     <ion-row>
-      <parkingspot-left col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(31)" [parkingId]="31"></parkingspot-left>
-      <parkingspot-right col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(12)" [parkingId]="12"></parkingspot-right>
+      <parkingspot-left col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(31)"
+                        [parkingId]="31"></parkingspot-left>
+      <parkingspot-right col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(12)"
+                         [parkingId]="12"></parkingspot-right>
     </ion-row>
 
     <ion-row>
-      <parkingspot-left col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(32)" [parkingId]="32"></parkingspot-left>
-      <parkingspot-right col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(13)" [parkingId]="13"></parkingspot-right>
+      <parkingspot-left col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(32)"
+                        [parkingId]="32"></parkingspot-left>
+      <parkingspot-right col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(13)"
+                         [parkingId]="13"></parkingspot-right>
     </ion-row>
 
     <ion-row>
-      <parkingspot-left col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(33)" [parkingId]="33"></parkingspot-left>
-      <parkingspot-right col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(14)" [parkingId]="14"></parkingspot-right>
+      <parkingspot-left col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(33)"
+                        [parkingId]="33"></parkingspot-left>
+      <parkingspot-right col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(14)"
+                         [parkingId]="14"></parkingspot-right>
     </ion-row>
 
     <ion-row>
-      <parkingspot-left col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(34)" [parkingId]="34"></parkingspot-left>
-      <parkingspot-right col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(15)" [parkingId]="15"></parkingspot-right>
+      <parkingspot-left col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(34)"
+                        [parkingId]="34"></parkingspot-left>
+      <parkingspot-right col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(15)"
+                         [parkingId]="15"></parkingspot-right>
     </ion-row>
 
     <ion-row>
-      <parkingspot-left col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(35)" [parkingId]="35"></parkingspot-left>
-      <parkingspot-right col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(16)" [parkingId]="16"></parkingspot-right>
+      <parkingspot-left col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(35)"
+                        [parkingId]="35"></parkingspot-left>
+      <parkingspot-right col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(16)"
+                         [parkingId]="16"></parkingspot-right>
     </ion-row>
 
     <ion-row>
-      <parkingspot-left col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(36)" [parkingId]="36"></parkingspot-left>
-      <parkingspot-right col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(17)" [parkingId]="17"></parkingspot-right>
+      <parkingspot-left col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(36)"
+                        [parkingId]="36"></parkingspot-left>
+      <parkingspot-right col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(17)"
+                         [parkingId]="17"></parkingspot-right>
     </ion-row>
 
     <ion-row>
-      <parkingspot-left col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(37)" [parkingId]="37"></parkingspot-left>
-      <parkingspot-right col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(18)" [parkingId]="18"></parkingspot-right>
+      <parkingspot-left col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(37)"
+                        [parkingId]="37"></parkingspot-left>
+      <parkingspot-right col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(18)"
+                         [parkingId]="18"></parkingspot-right>
     </ion-row>
 
     <ion-row>
-      <parkingspot-left col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(38)" [parkingId]="38"></parkingspot-left>
-      <parkingspot-right col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(19)" [parkingId]="19"></parkingspot-right>
+      <parkingspot-left col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(38)"
+                        [parkingId]="38"></parkingspot-left>
+      <parkingspot-right col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(19)"
+                         [parkingId]="19"></parkingspot-right>
     </ion-row>
 
     <ion-row>
@@ -71,7 +94,8 @@
         <ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon>
       </ion-col>
 
-      <parkingspot-right col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(20)" [parkingId]="20"></parkingspot-right>
+      <parkingspot-right col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(20)"
+                         [parkingId]="20"></parkingspot-right>
     </ion-row>
 
 
@@ -80,7 +104,8 @@
       <ion-col col-4 class="dotted-border">
         <ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon>
       </ion-col>
-      <parkingspot-right col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(21)" [parkingId]="21"></parkingspot-right>
+      <parkingspot-right col-6 class="parkingSpot" [parkingSpot]="getparkingSpot(21)"
+                         [parkingId]="21"></parkingspot-right>
     </ion-row>
     <ion-row>
       <ion-col col-2 class="left-parking-lot-col"></ion-col>

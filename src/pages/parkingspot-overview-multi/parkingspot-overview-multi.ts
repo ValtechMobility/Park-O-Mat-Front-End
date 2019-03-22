@@ -1,9 +1,15 @@
-import { Component } from '@angular/core';
-import { Platform, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
-import { Storage } from '@ionic/storage';
+/*
+ * parkingspot-overview-multi.ts
+ *
+ * Created on 2019-03-19
+ */
+
+import {Component} from '@angular/core';
+import {AlertController, LoadingController, NavController, NavParams, Platform} from 'ionic-angular';
+import {Storage} from '@ionic/storage';
 
 import {ParkingSpotControllerService} from '../../providers/rest-api/api/parkingSpotController.service'
-import { ParkingSpotsShare } from '../../providers/parking-spots-share/parking-spots-share';
+import {ParkingSpotsShare} from '../../providers/parking-spots-share/parking-spots-share';
 
 @IonicPage()
 @Component({
@@ -19,37 +25,37 @@ export class ParkingspotOverviewMultiPage {
   onResumeSubscription: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public platform: Platform,
-    public parkingSpotController: ParkingSpotControllerService,
-    public alertCtrl: AlertController,
-    public loadingCtrl: LoadingController,
-    private storage: Storage,
-    private parkingSpotShare: ParkingSpotsShare) {
+              public platform: Platform,
+              public parkingSpotController: ParkingSpotControllerService,
+              public alertCtrl: AlertController,
+              public loadingCtrl: LoadingController,
+              private storage: Storage,
+              private parkingSpotShare: ParkingSpotsShare) {
     this.storage.get("myReservedSpot").then((myReservedSpot) => {
       this.myReservedSpot = myReservedSpot;
     });
   }
 
   ionViewDidEnter() {
-    if(!this.onResumeSubscription){
+    if (!this.onResumeSubscription) {
       let page = this;
       this.onResumeSubscription = this.platform.resume.subscribe(() => {
         let active = page.navCtrl.last().instance instanceof ParkingspotOverviewMultiPage;
-        if(active){
+        if (active) {
           page.parkingSpotController.allUsingGET()
-              .toPromise()
-              .then(data => {
-                  let parkingSpots = this.parkingSpotShare.getparkingSpots();
-                  for (let entry of data) {
-                    parkingSpots[entry.parkingId.toString()] = entry;
-                  }
-                  page.parkingSpotShare.setparkingSpots(parkingSpots);
+            .toPromise()
+            .then(data => {
+              let parkingSpots = this.parkingSpotShare.getparkingSpots();
+              for (let entry of data) {
+                parkingSpots[entry.parkingId.toString()] = entry;
+              }
+              page.parkingSpotShare.setparkingSpots(parkingSpots);
 
-                  console.log('Initializing App complete.');
-              })
-              .catch(err => {
-                  page.doErrorAlert("Error", "Daten konnten nicht geladen werden");
-              });
+              console.log('Initializing App complete.');
+            })
+            .catch(err => {
+              page.doErrorAlert("Error", "Daten konnten nicht geladen werden");
+            });
         }
       });
     }
@@ -60,22 +66,22 @@ export class ParkingspotOverviewMultiPage {
     this.onResumeSubscription.unsubscribe();
   }
 
-  public isCarVisible(id: number){
+  public isCarVisible(id: number) {
     let obj = this.getparkingSpot(id);
     return obj != null && (obj.occupied || obj.reserved);
   }
 
-  public isParkingSpotReserved(id: number){
+  public isParkingSpotReserved(id: number) {
     return this.getparkingSpot(id) != null && !this.isMyParkingSpotReserved(id) && this.getparkingSpot(id).reserved;
   }
 
-  public isMyParkingSpotReserved(id: number){
-      return this.getparkingSpot(id) != null && this.myReservedSpot != null && this.myReservedSpot.parkingId == id;
+  public isMyParkingSpotReserved(id: number) {
+    return this.getparkingSpot(id) != null && this.myReservedSpot != null && this.myReservedSpot.parkingId == id;
   }
 
-  public getparkingSpot(id: number){
-    if(this.parkingSpotShare.getparkingSpots() != null){
-      if(this.parkingSpotShare.getparkingSpots()[id] != null){
+  public getparkingSpot(id: number) {
+    if (this.parkingSpotShare.getparkingSpots() != null) {
+      if (this.parkingSpotShare.getparkingSpots()[id] != null) {
         return this.parkingSpotShare.getparkingSpots()[id];
       }
     }

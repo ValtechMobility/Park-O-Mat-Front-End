@@ -1,3 +1,9 @@
+/*
+ * sensorData.ts
+ *
+ * Created on 2019-03-19
+ */
+
 /**
  * Parkplatz
  * Nice API
@@ -11,8 +17,8 @@
 
 
 export interface SensorData {
-    batteryVoltage?: number;
-    occupied?: boolean;
-    rssi?: number;
-    sensorId?: string;
+  batteryVoltage?: number;
+  occupied?: boolean;
+  rssi?: number;
+  sensorId?: string;
 }

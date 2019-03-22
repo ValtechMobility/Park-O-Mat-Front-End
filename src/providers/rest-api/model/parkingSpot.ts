@@ -1,3 +1,9 @@
+/*
+ * parkingSpot.ts
+ *
+ * Created on 2019-03-19
+ */
+
 /**
  * Parkplatz
  * Nice API
@@ -11,15 +17,15 @@
 
 
 export interface ParkingSpot {
-    batteryVoltage?: number;
-    endTime?: string;
-    occupied?: boolean;
-    parkingId?: string;
-    reservationToken?: string;
-    reserved?: boolean;
-    rssi?: number;
-    sensorId?: string;
-    startTime?: string;
-    user?: string;
-    lastUpdated?: string;
+  batteryVoltage?: number;
+  endTime?: string;
+  occupied?: boolean;
+  parkingId?: string;
+  reservationToken?: string;
+  reserved?: boolean;
+  rssi?: number;
+  sensorId?: string;
+  startTime?: string;
+  user?: string;
+  lastUpdated?: string;
 }

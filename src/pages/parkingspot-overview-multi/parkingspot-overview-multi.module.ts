@@ -1,8 +1,14 @@
-import { NgModule } from '@angular/core';
-import { IonicPageModule } from 'ionic-angular';
-import { ParkingspotOverviewMultiPage } from './parkingspot-overview-multi';
-import { ParkingSpotLeftModule } from '../../components/parkingspot-left/parkingspot-left.module'
-import { ParkingSpotRightModule } from '../../components/parkingspot-right/parkingspot-right.module'
+/*
+ * parkingspot-overview-multi.module.ts
+ *
+ * Created on 2019-03-19
+ */
+
+import {NgModule} from '@angular/core';
+import {IonicPageModule} from 'ionic-angular';
+import {ParkingspotOverviewMultiPage} from './parkingspot-overview-multi';
+import {ParkingSpotLeftModule} from '../../components/parkingspot-left/parkingspot-left.module'
+import {ParkingSpotRightModule} from '../../components/parkingspot-right/parkingspot-right.module'
 
 @NgModule({
   declarations: [
@@ -14,4 +20,5 @@ import { ParkingSpotRightModule } from '../../components/parkingspot-right/parki
     ParkingSpotRightModule,
   ],
 })
-export class ParkingspotOverviewMultiPageModule {}
+export class ParkingspotOverviewMultiPageModule {
+}
